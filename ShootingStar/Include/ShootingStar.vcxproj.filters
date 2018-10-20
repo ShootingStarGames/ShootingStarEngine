@@ -16,18 +16,36 @@
     <Filter Include="Math">
       <UniqueIdentifier>{205812f8-ef98-4ed6-ab72-718054816035}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Vector">
+      <UniqueIdentifier>{c16f3a20-3fa6-40cb-8027-b8ba2f6ed7b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Matrix">
+      <UniqueIdentifier>{726d10b3-bf07-493a-a1fe-ddc1d29611ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Quaternion">
+      <UniqueIdentifier>{10f9a009-df50-419a-8cf8-3b623518ae0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shootingStar.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Math\Vector2.h">
-      <Filter>Math</Filter>
+      <Filter>Math\Vector</Filter>
     </ClInclude>
     <ClInclude Include="Math\Vector3.h">
-      <Filter>Math</Filter>
+      <Filter>Math\Vector</Filter>
     </ClInclude>
     <ClInclude Include="Math\Vector4.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix4x4.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Quaternion.h">
+      <Filter>Math\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\math_func.h">
       <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,13 +54,19 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Math\Vector2.cpp">
-      <Filter>Math</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="Math\Vector3.cpp">
-      <Filter>Math</Filter>
+      <Filter>Math\Vector</Filter>
     </ClCompile>
     <ClCompile Include="Math\Vector4.cpp">
-      <Filter>Math</Filter>
+      <Filter>Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Matrix4x4.cpp">
+      <Filter>Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Quaternion.cpp">
+      <Filter>Math\Quaternion</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

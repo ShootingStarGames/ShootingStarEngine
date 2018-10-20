@@ -120,10 +120,10 @@ namespace shootingStar
 			return Vector2(0, 1);
 		}
 
-		const Vector2 Vector2::Abs(const Vector2 & vector2)
+		const Vector2 Vector2::Abs(const Vector2 & vec2)
 		{
-			float x = vector2.x >= 0 ? vector2.x : -vector2.x;
-			float y = vector2.y >= 0 ? vector2.y : -vector2.y;
+			float x = vec2.x >= 0 ? vec2.x : -vec2.x;
+			float y = vec2.y >= 0 ? vec2.y : -vec2.y;
 
 			return Vector2(x, y);
 		}
@@ -133,10 +133,10 @@ namespace shootingStar
 			return Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
 
-		const Vector2 Vector2::Clamp(const Vector2& vector2, const Vector2& min, const Vector2& max)
+		const Vector2 Vector2::Clamp(const Vector2& vec2, const Vector2& min, const Vector2& max)
 		{
-			float x = vector2.x < min.x ? min.x : vector2.x;
-			float y = vector2.y < min.y ? min.y : vector2.y;
+			float x = vec2.x < min.x ? min.x : vec2.x;
+			float y = vec2.y < min.y ? min.y : vec2.y;
 			return Vector2(x > max.x ? max.x : x, y > max.y ? max.y : y);
 		}
 
@@ -166,18 +166,18 @@ namespace shootingStar
 			return Vector2(x, y);
 		}
 
-		const Vector2 Vector2::Negate(const Vector2 & vector2)
+		const Vector2 Vector2::Negate(const Vector2 & vec2)
 		{
-			return -vector2;
+			return -vec2;
 		}
 
-		const Vector2 Vector2::Project(const Vector2 & vector2, const Vector2 & axisVector)
+		const Vector2 Vector2::Project(const Vector2 & vec2, const Vector2 & axisVector)
 		{
-			float sqrMag = Vector2::Dot(axisVector, vector2);
+			float sqrMag = Vector2::Dot(axisVector, vec2);
 			if (sqrMag < FLT_EPSILON)
 				return Zero();
 
-			return axisVector * Dot(vector2, axisVector) / sqrMag;
+			return axisVector * Dot(vec2, axisVector) / sqrMag;
 		}
 
 		const Vector2 Vector2::Reflect(Vector2 & dir, const Vector2 & normal)
@@ -185,12 +185,12 @@ namespace shootingStar
 			return -2.0f * Dot(normal, dir) * normal + dir;
 		}
 
-		const Vector2 Vector2::Normalized(const Vector2 &vector2)
+		const Vector2 Vector2::Normalize(const Vector2 &vec2)
 		{
-			float v = Vector2::Length(vector2);
+			float v = Vector2::Length(vec2);
 			if (v < FLT_EPSILON)
 				return Zero();
-			return vector2 / v;
+			return vec2 / v;
 		}
 
 		float Vector2::Distance(const Vector2 & from, const Vector2 & to)
@@ -208,14 +208,14 @@ namespace shootingStar
 			return sx + sy;
 		}
 
-		float Vector2::Length(const Vector2 &vector2)
+		float Vector2::Length(const Vector2 &vec2)
 		{
-			return sqrtf((vector2.x * vector2.x) + (vector2.y + vector2.y));
+			return sqrtf((vec2.x * vec2.x) + (vec2.y + vec2.y));
 		}
 
-		float Vector2::LengthSquared(const Vector2 &vector2)
+		float Vector2::LengthSquared(const Vector2 &vec2)
 		{
-			return (vector2.x * vector2.x) + (vector2.y + vector2.y);
+			return (vec2.x * vec2.x) + (vec2.y + vec2.y);
 		}
 
 		float Vector2::Dot(const Vector2 & lhs, const Vector2 & rhs)
@@ -239,7 +239,7 @@ namespace shootingStar
 
 		const Vector2 Vector2::Normalized() const
 		{
-			return Vector2::Normalized(*this);
+			return Vector2::Normalize(*this);
 		}
 
 		void Vector2::Set(float newX, float newY)
