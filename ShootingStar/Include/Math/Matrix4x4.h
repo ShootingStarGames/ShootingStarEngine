@@ -1,5 +1,6 @@
 #pragma once
 #include "../shootingStar.h"
+#include "math_func.h"
 #include "Vector2.h"
 #include "Vector3.h"
 #include "Vector4.h"
@@ -9,6 +10,10 @@ namespace shootingStar
 {
 	namespace math
 	{
+		class Vector2;
+		class Vector3;
+		class Vector4;
+		class Quaternion;
 
 		class Matrix4x4
 		{
@@ -56,13 +61,17 @@ namespace shootingStar
 			static Matrix4x4 Scale(const Vector3& vector);
 			static Matrix4x4 Rotate(const Quaternion& quat);
 
+			static Matrix4x4 Orthographic(float left, float right, float bottom, float top, float nearD, float farD);
+			static Matrix4x4 Perspective(float fov, float aspectRatio, float nearD, float farD);
+			static Matrix4x4 LookAt(const Vector3& camera, const Vector3& object, const Vector3& up);
+
 		public:
 			void Set(
 				float _00, float _01, float _02, float _03,
 				float _10, float _11, float _12, float _13,
 				float _20, float _21, float _22, float _23,
 				float _30, float _31, float _32, float _33);
-			
+
 			Vector3 MultiplyVector(const Vector3& vector);
 			Vector3 MultiplyPoint(const Vector3& point);
 		public:
@@ -81,4 +90,5 @@ namespace shootingStar
 			};
 		};
 	}
+
 }

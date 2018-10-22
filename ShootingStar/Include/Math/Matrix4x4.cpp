@@ -1,5 +1,5 @@
 #include "Matrix4x4.h"
-
+ 
 namespace shootingStar
 {
 	namespace math
@@ -30,7 +30,7 @@ namespace shootingStar
 				{
 					float f = abs(m[i][j] - mat.m[i][j]);
 
-					if (f > FLT_EPSILON)
+					if (f > kEpsilon)
 						return true;
 				}
 			return false;
@@ -138,8 +138,6 @@ namespace shootingStar
 			res.y = m10 * v.x + m11 * v.y + m12 * v.z + m13 * v.w;
 			res.z = m20 * v.x + m21 * v.y + m22 * v.z + m23 * v.w;
 			res.w = m30 * v.x + m31 * v.y + m32 * v.z + m33 * v.w;
-			return res;
-
 			return res;
 		}
 		void Matrix4x4::Set(float _00, float _01, float _02, float _03,
@@ -298,5 +296,53 @@ namespace shootingStar
 			m.m03 = 0.0f;				 m.m13 = 0.0f;				m.m23 = 0.0f;				m.m33 = 1.0f;
 			return m;
 		}
-	}
-}
+		Matrix4x4 Matrix4x4::Orthographic(float left, float right, float bottom, float top, float nearD, float farD)
+		{
+			Matrix4x4 result;
+			result.m[0][0] = 2.0f / (right - left);
+			result.m[1][1] = 2.0f / (top - bottom);
+			result.m[2][2] = 2.0f / (nearD - farD);
+			result.m[0][3] = (left + right) / (left - right);
+			result.m[1][3] = (bottom + top) / (bottom - top);
+			result.m[2][3] = (farD + nearD) / (farD - nearD);
+			result.m[3][3] = 0;
+
+			return result;
+		}
+		Matrix4x4 Matrix4x4::Perspective(float fov, float aspectRatio, float nearD, float farD)
+		{
+			Matrix4x4 result;
+			float q = 1.0f / tan((0.5f * fov)* deg2rad);
+			float a = q / aspectRatio;
+			float b = (nearD + farD) / (nearD - farD);
+			float c = (2.0f * nearD * farD) / (nearD - farD);
+			result.m[0][0] = a;
+			result.m[1][1] = q;
+			result.m[2][2] = b;
+			result.m[3][2] = -1.0f;
+			result.m[2][3] = c;
+			return result;
+		}
+		Matrix4x4 Matrix4x4::LookAt(const Vector3 & camera, const Vector3 & object, const Vector3 & up)
+		{
+			Matrix4x4 result = Identity();
+			Vector3 f = (object - camera).Normalized();
+			Vector3 s = Vector3::Cross(f,up.Normalized());
+			Vector3 u = Vector3::Cross(s, f);
+			result.m[0][0] = s.x;
+			result.m[1][0] = s.y;
+			result.m[2][0] = s.z;
+			result.m[0][1] = u.x;
+			result.m[1][1] = u.y;
+			result.m[2][1] = u.z;
+			result.m[0][2] = -f.x;
+			result.m[1][2] = -f.y;
+			result.m[2][2] = -f.z;
+			return result * Translate(Vector3(-camera.x, -camera.y, -camera.z));
+		}			   
+	}				   
+}					   
+					   
+					   
+					   
+					   

@@ -1,5 +1,6 @@
 #pragma once
 #include "../shootingStar.h"
+#include "math_func.h"
 
 namespace shootingStar
 {
@@ -8,7 +9,7 @@ namespace shootingStar
 		class Vector4
 		{
 		public:
-			Vector4() = default;
+			Vector4();
 			Vector4(float f);
 			Vector4(float x, float y);
 			Vector4(float x, float y, float z);
@@ -20,8 +21,12 @@ namespace shootingStar
 
 			const Vector4		operator + (const Vector4& other) const;
 			const Vector4		operator - (const Vector4& other) const;
-			bool				operator == (const Vector4& other);
-			bool				operator != (const Vector4& other);
+			bool				operator == (const Vector4& other) const;
+			bool				operator != (const Vector4& other) const;
+			bool				operator <(const Vector4& other) const;
+			bool				operator >(const Vector4& other) const;
+			bool				operator <=(const Vector4& other) const;
+			bool				operator >=(const Vector4& other) const;
 
 			const Vector4		operator * (const float f) const;
 			const Vector4		operator * (const Vector4& other) const;

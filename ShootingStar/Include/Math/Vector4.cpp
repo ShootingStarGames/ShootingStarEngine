@@ -4,7 +4,10 @@ namespace shootingStar
 {
 	namespace math
 	{
-		Vector4::Vector4(float f) : x(f), y(f), z(f)
+		Vector4::Vector4() : x(0), y(0), z(0), w(0)
+		{
+		}
+		Vector4::Vector4(float f) : x(f), y(f), z(f), w(0)
 		{
 		}
 		
@@ -40,18 +43,38 @@ namespace shootingStar
 			return Vector4(x - other.x, y - other.y, z - other.z, w - other.w);
 		}
 		
-		bool Vector4::operator==(const Vector4 & other)
+		bool Vector4::operator==(const Vector4 & other) const
 		{
 			return 
-				(fabsf(x - other.x) < FLT_EPSILON)	& 
-				(fabsf(y - other.y) < FLT_EPSILON)	& 
-				(fabsf(z - other.z) < FLT_EPSILON)	& 
-				(fabsf(w - other.w) < FLT_EPSILON);
+				(fabsf(x - other.x) < kEpsilon)	& 
+				(fabsf(y - other.y) < kEpsilon)	& 
+				(fabsf(z - other.z) < kEpsilon)	& 
+				(fabsf(w - other.w) < kEpsilon);
 		}
 		
-		bool Vector4::operator!=(const Vector4 & other)
+		bool Vector4::operator!=(const Vector4 & other) const
 		{
-			return !Vector4::operator==(other);
+			return !((*this) == other);
+		}
+
+		bool Vector4::operator<(const Vector4 & other) const
+		{
+			return x < other.x && y < other.y && z < other.z && w < other.w;
+		}
+
+		bool Vector4::operator>(const Vector4 & other) const
+		{
+			return x > other.x && y > other.y && z > other.z && w > other.w;
+		}
+
+		bool Vector4::operator<=(const Vector4 & other) const
+		{
+			return x <= other.x && y <= other.y && z <= other.z && w <= other.w;
+		}
+
+		bool Vector4::operator>=(const Vector4 & other) const
+		{
+			return x >= other.x && y >= other.y && z >= other.z && w >= other.w;
 		}
 		
 		const Vector4 Vector4::operator*(const float f) const
@@ -224,7 +247,7 @@ namespace shootingStar
 		const Vector4 Vector4::Normalize(const Vector4 & vec4)
 		{
 			float v = Vector4::Length(vec4);
-			if (v < FLT_EPSILON)
+			if (v < kEpsilon)
 				return Zero();
 			return vec4 / v;
 		}

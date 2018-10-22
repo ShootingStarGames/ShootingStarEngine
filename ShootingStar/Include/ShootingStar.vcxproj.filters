@@ -19,11 +19,17 @@
     <Filter Include="Math\Vector">
       <UniqueIdentifier>{c16f3a20-3fa6-40cb-8027-b8ba2f6ed7b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math\Matrix">
-      <UniqueIdentifier>{726d10b3-bf07-493a-a1fe-ddc1d29611ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Math\Quaternion">
       <UniqueIdentifier>{10f9a009-df50-419a-8cf8-3b623518ae0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Rectangle">
+      <UniqueIdentifier>{edae43de-88fa-45c1-a58a-efd9f3815565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{d20951e5-94d5-4531-8e13-2393911a9e3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Matrix">
+      <UniqueIdentifier>{726d10b3-bf07-493a-a1fe-ddc1d29611ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,20 +39,32 @@
     <ClInclude Include="Math\Vector2.h">
       <Filter>Math\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="Math\math_func.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\SMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="Math\Vector3.h">
       <Filter>Math\Vector</Filter>
     </ClInclude>
     <ClInclude Include="Math\Vector4.h">
       <Filter>Math\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="Math\Matrix4x4.h">
-      <Filter>Math\Matrix</Filter>
-    </ClInclude>
     <ClInclude Include="Math\Quaternion.h">
       <Filter>Math\Quaternion</Filter>
     </ClInclude>
-    <ClInclude Include="Math\math_func.h">
-      <Filter>Math</Filter>
+    <ClInclude Include="Math\Matrix4x4.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Rectangle.h">
+      <Filter>Math\Rectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\WinApp.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,11 +80,17 @@
     <ClCompile Include="Math\Vector4.cpp">
       <Filter>Math\Vector</Filter>
     </ClCompile>
+    <ClCompile Include="Math\Quaternion.cpp">
+      <Filter>Math\Quaternion</Filter>
+    </ClCompile>
     <ClCompile Include="Math\Matrix4x4.cpp">
       <Filter>Math\Matrix</Filter>
     </ClCompile>
-    <ClCompile Include="Math\Quaternion.cpp">
-      <Filter>Math\Quaternion</Filter>
+    <ClCompile Include="Math\Rectangle.cpp">
+      <Filter>Math\Rectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\WinApp.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

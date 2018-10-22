@@ -4,6 +4,9 @@ namespace shootingStar
 {
 	namespace math
 	{
+		Vector2::Vector2() : x(0), y(0)
+		{
+		}
 		Vector2::Vector2(float f) : x(f), y(f)
 		{
 		}
@@ -32,14 +35,34 @@ namespace shootingStar
 			return Vector2(x - other.x, y - other.y);
 		}
 
-		bool Vector2::operator==(const Vector2 & other)
+		bool Vector2::operator==(const Vector2 & other) const
 		{
-			return (fabsf(x - other.x) < FLT_EPSILON) & (fabsf(y - other.y) < FLT_EPSILON);
+			return (fabsf(x - other.x) < kEpsilon) & (fabsf(y - other.y) < kEpsilon);
 		}
 
-		bool Vector2::operator!=(const Vector2 & other)
+		bool Vector2::operator!=(const Vector2 & other) const
 		{
-			return !Vector2::operator==(other);
+			return !((*this) == other);
+		}
+
+		bool Vector2::operator<(const Vector2 & other) const
+		{
+			return x < other.x && y < other.y;
+		}
+
+		bool Vector2::operator>(const Vector2 & other) const
+		{
+			return x > other.x && y > other.y;
+		}
+
+		bool Vector2::operator<=(const Vector2 & other) const
+		{
+			return x <= other.x && y <= other.y;
+		}
+
+		bool Vector2::operator>=(const Vector2 & other) const
+		{
+			return x >= other.x && y >= other.y;
 		}
 
 		const Vector2 Vector2::operator*(const float f) const
@@ -174,7 +197,7 @@ namespace shootingStar
 		const Vector2 Vector2::Project(const Vector2 & vec2, const Vector2 & axisVector)
 		{
 			float sqrMag = Vector2::Dot(axisVector, vec2);
-			if (sqrMag < FLT_EPSILON)
+			if (sqrMag < kEpsilon)
 				return Zero();
 
 			return axisVector * Dot(vec2, axisVector) / sqrMag;
@@ -188,7 +211,7 @@ namespace shootingStar
 		const Vector2 Vector2::Normalize(const Vector2 &vec2)
 		{
 			float v = Vector2::Length(vec2);
-			if (v < FLT_EPSILON)
+			if (v < kEpsilon)
 				return Zero();
 			return vec2 / v;
 		}
@@ -226,7 +249,7 @@ namespace shootingStar
 		const Vector2 Vector2::Project(const Vector2 & axisVector)
 		{
 			float sqrMag = Vector2::Dot(axisVector, *this);
-			if (sqrMag < FLT_EPSILON)
+			if (sqrMag < kEpsilon)
 				return Zero();
 
 			return axisVector * Dot(*this, axisVector) / sqrMag;

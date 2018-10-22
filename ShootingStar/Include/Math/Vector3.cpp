@@ -4,6 +4,9 @@ namespace shootingStar
 {
 	namespace math
 	{
+		Vector3::Vector3() : x(0), y(0), z(0)
+		{
+		}
 		Vector3::Vector3(float f) : x(f), y(f), z(f)
 		{
 		}
@@ -36,14 +39,34 @@ namespace shootingStar
 			return Vector3(x - other.x, y - other.y, z - other.z);
 		}
 		
-		bool Vector3::operator==(const Vector3 & other)
+		bool Vector3::operator==(const Vector3 & other) const
 		{
-			return (fabsf(x - other.x) < FLT_EPSILON) & (fabsf(y - other.y) < FLT_EPSILON) & (fabsf(z - other.z) < FLT_EPSILON);
+			return (fabsf(x - other.x) < kEpsilon) & (fabsf(y - other.y) < kEpsilon) & (fabsf(z - other.z) < kEpsilon);
 		}
 		
-		bool Vector3::operator!=(const Vector3 & other)
+		bool Vector3::operator!=(const Vector3 & other) const
 		{
-			return !Vector3::operator==(other);
+			return !((*this) == other);
+		}
+
+		bool Vector3::operator<(const Vector3 & other) const
+		{
+			return x < other.x && y < other.y && z < other.z;
+		}
+
+		bool Vector3::operator>(const Vector3 & other) const
+		{
+			return x > other.x && y > other.y && z > other.z;
+		}
+
+		bool Vector3::operator<=(const Vector3 & other) const
+		{
+			return x <= other.x && y <= other.y && z <= other.z;
+		}
+
+		bool Vector3::operator>=(const Vector3 & other) const
+		{
+			return x >= other.x && y >= other.y && z >= other.z;
 		}
 		
 		const Vector3 Vector3::operator*(const float f) const
@@ -232,7 +255,7 @@ namespace shootingStar
 		const Vector3 Vector3::Project(const Vector3 & vec3, const Vector3 & axisVector)
 		{
 			float sqrMag = Vector3::Dot(axisVector, vec3);
-			if (sqrMag < FLT_EPSILON)
+			if (sqrMag < kEpsilon)
 				return Zero();
 
 			return axisVector * Dot(vec3, axisVector) / sqrMag;
@@ -246,7 +269,7 @@ namespace shootingStar
 		const Vector3 Vector3::Normalize(const Vector3 & vec3)
 		{
 			float v = Vector3::Length(vec3);
-			if (v < FLT_EPSILON)
+			if (v < kEpsilon)
 				return Zero();
 			return vec3 / v;
 		}
@@ -287,7 +310,7 @@ namespace shootingStar
 		const Vector3 Vector3::Project(const Vector3 & axisVector)
 		{
 			float sqrMag = Vector3::Dot(axisVector, *this);
-			if (sqrMag < FLT_EPSILON)
+			if (sqrMag < kEpsilon)
 				return Zero();
 
 			return axisVector * Dot(*this, axisVector) / sqrMag;
