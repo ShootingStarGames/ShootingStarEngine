@@ -5,22 +5,23 @@ namespace shootingStar
 {
 	namespace core
 	{
-		Timer::Timer()
+		bool Timer::Reset()
 		{
-			Reset();
+			QueryPerformanceFrequency(&m_tSecond);
+			QueryPerformanceCounter(&m_tTime);
+
+			m_fDeltaTime = 0.f;
+
+			return true;
 		}
-		void Timer::Reset()
+		void Timer::Update()
 		{
-			m_cStart = clock::now();
-			m_fTimeScale = 1.f;
-		}
-		float Timer::Elapsed() // ElapsedTime Milli Second
-		{
-			return duration_cast<fmillisecond>(clock::now() - m_cStart).count()* m_fTimeScale;;
-		}
-		float Timer::ElapsedSeconds() // ElapsedTime Second
-		{
-			return Elapsed() * 1000.0f* m_fTimeScale;;
+			LARGE_INTEGER tTime;
+			QueryPerformanceCounter(&tTime);
+
+			m_fDeltaTime = (tTime.QuadPart - m_tTime.QuadPart) / (float)m_tSecond.QuadPart;
+
+			m_tTime = tTime;
 		}
 	}
 }

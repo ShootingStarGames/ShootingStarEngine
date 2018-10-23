@@ -1,26 +1,38 @@
 #pragma once
 #include "../stdafx.h"
-#include <chrono>
 
 namespace shootingStar
 {
 	namespace core
 	{
-		using namespace std::chrono;
-
-		typedef high_resolution_clock     clock;
-		typedef duration<float, std::milli> fmillisecond;
-
 		class Timer
 		{
 		private:
-			time_point<clock> m_cStart;
-			float m_fTimeScale;
+			LARGE_INTEGER m_tSecond;
+			LARGE_INTEGER m_tTime;
+			float		m_fDeltaTime;
+			float		m_fTimeScale;
+
 		public:
-			Timer();
-			void Reset();
-			float Elapsed();
-			float ElapsedSeconds();
+			float GetDeltaTime()	const
+			{
+				return m_fDeltaTime * m_fTimeScale;
+			}
+
+			float GetTimeScale() const
+			{
+				return m_fTimeScale;
+			}
+
+		public:
+			void SetTimeScale(float fTimeScale)
+			{
+				m_fTimeScale = fTimeScale;
+			}
+		public:
+			bool Reset();
+			void Update();
 		};
+
 	}
 }
