@@ -1,3 +1,4 @@
+#include "../stdafx.h"
 #include "Matrix4x4.h"
  
 namespace shootingStar
@@ -37,7 +38,7 @@ namespace shootingStar
 		}
 		bool Matrix4x4::operator==(const Matrix4x4 & mat) const
 		{
-			return !((*this) == mat);
+			return !((*this) != mat);
 		}
 		Matrix4x4 & Matrix4x4::operator+=(const Matrix4x4 & mat)
 		{

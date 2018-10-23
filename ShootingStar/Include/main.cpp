@@ -1,4 +1,4 @@
-#include "shootingStar.h"
+#include "stdafx.h"
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPreInstance,

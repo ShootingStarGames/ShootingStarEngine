@@ -1,3 +1,4 @@
+#include "../stdafx.h"
 #include "Rectangle.h"
 
 namespace shootingStar

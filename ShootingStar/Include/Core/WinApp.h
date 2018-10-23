@@ -1,10 +1,9 @@
 #pragma once
-#include "../shootingStar.h"
 #include "../Common.h"
 #include "../Math/SMath.h"
 
 namespace shootingStar {
-	namespace Core
+	namespace core
 	{
 		class WinApp
 		{

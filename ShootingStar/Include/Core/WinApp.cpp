@@ -1,8 +1,9 @@
+#include "../stdafx.h"
 #include "WinApp.h"
 
 
 namespace shootingStar {
-	namespace Core
+	namespace core
 	{
 		WinApp::WinApp(const Desc & desc)
 		{

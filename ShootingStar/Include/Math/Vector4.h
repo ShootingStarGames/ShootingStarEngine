@@ -1,5 +1,4 @@
 #pragma once
-#include "../shootingStar.h"
 #include "math_func.h"
 
 namespace shootingStar

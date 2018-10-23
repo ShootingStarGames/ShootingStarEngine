@@ -1,5 +1,4 @@
 #pragma once
-#include "../shootingStar.h"
 #include "Vector2.h"
 
 namespace shootingStar

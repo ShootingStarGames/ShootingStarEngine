@@ -1,5 +1,4 @@
 #pragma once
-#include "../shootingStar.h"
 #include "math_func.h"
 #include "Vector2.h"
 #include "Vector3.h"

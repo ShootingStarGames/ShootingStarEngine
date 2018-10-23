@@ -31,11 +31,14 @@
     <Filter Include="Math\Matrix">
       <UniqueIdentifier>{726d10b3-bf07-493a-a1fe-ddc1d29611ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{01450931-e398-4e14-908c-3d51c1c389f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Timer">
+      <UniqueIdentifier>{027b110e-b3e3-4a9d-93d5-71cccbe6ac62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shootingStar.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Math\Vector2.h">
       <Filter>Math\Vector</Filter>
     </ClInclude>
@@ -66,6 +69,15 @@
     <ClInclude Include="Core\WinApp.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="System\FileSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Timer.h">
+      <Filter>Core\Timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -91,6 +103,15 @@
     </ClCompile>
     <ClCompile Include="Core\WinApp.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="System\FileSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Timer.cpp">
+      <Filter>Core\Timer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
