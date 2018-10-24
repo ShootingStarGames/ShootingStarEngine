@@ -37,6 +37,9 @@
     <Filter Include="Core\Timer">
       <UniqueIdentifier>{027b110e-b3e3-4a9d-93d5-71cccbe6ac62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Device">
+      <UniqueIdentifier>{1d0ff044-92a5-487a-801e-ea8bd91f0526}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\Vector2.h">
@@ -66,9 +69,6 @@
     <ClInclude Include="Math\Rectangle.h">
       <Filter>Math\Rectangle</Filter>
     </ClInclude>
-    <ClInclude Include="Core\WinApp.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="System\FileSystem.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -77,6 +77,15 @@
     </ClInclude>
     <ClInclude Include="Core\Timer.h">
       <Filter>Core\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\WinApp.h">
+      <Filter>Core\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +110,6 @@
     <ClCompile Include="Math\Rectangle.cpp">
       <Filter>Math\Rectangle</Filter>
     </ClCompile>
-    <ClCompile Include="Core\WinApp.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="System\FileSystem.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -113,5 +119,21 @@
     <ClCompile Include="Core\Timer.cpp">
       <Filter>Core\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Core\WinApp.cpp">
+      <Filter>Core\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ShootingStar.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>
